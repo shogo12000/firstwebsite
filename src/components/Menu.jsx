@@ -9,7 +9,7 @@ function Menu() {
             <li>
               <NavLink
                 to="/"
-                className={({ isActive }) => isActive && "activeLink"}
+                className={({ isActive }) => isActive ? "activeLink": "notActiveLink"}
               >
                 <i className="fa-solid fa-house"></i>
                 <p>Home</p>
@@ -18,7 +18,7 @@ function Menu() {
             <li>
               <NavLink
                 to="/link1"
-                className={({ isActive }) => isActive && "activeLink"}
+                className={({ isActive }) => isActive ? "activeLink": "notActiveLink"}
               >
                 <i className="fa-solid fa-link"></i>
                 <p>Link1</p>
@@ -27,7 +27,7 @@ function Menu() {
             <li>
               <NavLink
                 to="/link2"
-                className={({ isActive }) => isActive && "activeLink"}
+                className={({ isActive }) => isActive ? "activeLink": "notActiveLink"}
               >
                 <i className="fa-solid fa-link"></i>
                 <p>Link2</p>
@@ -36,7 +36,7 @@ function Menu() {
             <li>
               <NavLink
                 to="/link3"
-                className={({ isActive }) => isActive && "activeLink"}
+                className={({ isActive }) => isActive ? "activeLink": "notActiveLink"}
               >
                 <i className="fa-solid fa-link"></i>
                 <p>Link3</p>
@@ -45,7 +45,7 @@ function Menu() {
             <li>
               <NavLink
                 to="/link4"
-                className={({ isActive }) => isActive && "activeLink"}
+                className={({ isActive }) => isActive ? "activeLink": "notActiveLink"}
               >
                 <i className="fa-solid fa-link"></i>
                 <p>Link4</p>
@@ -54,7 +54,7 @@ function Menu() {
             <li>
               <NavLink
                 to="/login"
-                className={({ isActive }) => isActive && "activeLink"}
+                className={({ isActive }) => isActive ? "activeLink": "notActiveLink"}
               >
                 <i className="fa-solid fa-right-to-bracket"></i>
                 <p>Login</p>
@@ -67,7 +67,7 @@ function Menu() {
             <li>
               <NavLink
                 to="/contact"
-                className={({ isActive }) => isActive && "activeLink"}
+                className={({ isActive }) => isActive ? "activeLink": "notActiveLink"}
               >
                 <i className="fa-solid fa-address-book"></i>
                 <p>Contact</p>
