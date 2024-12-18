@@ -8,6 +8,7 @@ function Login() {
   const [emailExist, setEmailExist] = useState(true);
   const [loginError, setLoginError] = useState(false);
   const [loadingPage, setLoadingPage] = useState(null);
+  const [newUser, setNewUser] = useState(false);
 
   useEffect(() => {
     setEmail("");
@@ -16,8 +17,8 @@ function Login() {
     setLoginError(false);
     setEmailExist(true);
     setLoadingPage(null);
-
-    console.log(loadingPage);
+    setNewUser(false);
+ 
   }, [login]);
 
   const loginUser = async () => {
@@ -44,7 +45,6 @@ function Login() {
 
       const data = await response.json();
       setLoadingPage(null);
-      console.log(data);
     } catch (error) {
       console.error("login Error: ", error.message);
     }
@@ -65,15 +65,17 @@ function Login() {
           body: JSON.stringify({ email: email, password: userPassword }),
         }
       );
-
-      console.log(response);
+ 
       if (!response.ok) {
         setEmailExist(false);
         setLoadingPage(null);
         return
       }
-
-
+      setLoadingPage(null);
+      setEmail("");
+      setUserPassword("");
+      setUserPasswordConfirm("");
+      setNewUser(true);
     } catch (error) {
       console.error(`Error: ${response.status} - ${response.statusText}`);
     }
@@ -119,6 +121,9 @@ function Login() {
                   onChange={(e) => setUserPasswordConfirm(e.target.value)}
                 />
               </div>
+            )}
+            {newUser && (
+              <p>User Created Successfully</p>
             )}
             {loginError && (
               <p className="errorMessage">It is Invalid... try again!!!</p>
