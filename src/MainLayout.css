@@ -140,3 +140,8 @@ nav a{
     color: #be0000;    
     font-weight: 700;
 }
+
+/* MENU */
+.logout{
+    color: rgb(8, 244, 8);
+}
