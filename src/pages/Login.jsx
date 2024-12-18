@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
+import { UserToken } from "../ContextToken";
+import { useNavigate } from "react-router";
 
 function Login() {
+  const {token, setToken} = UserToken();
   const [login, setLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
@@ -9,6 +12,7 @@ function Login() {
   const [loginError, setLoginError] = useState(false);
   const [loadingPage, setLoadingPage] = useState(null);
   const [newUser, setNewUser] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setEmail("");
@@ -45,6 +49,9 @@ function Login() {
 
       const data = await response.json();
       setLoadingPage(null);
+      setToken(data);
+      navigate("/")
+
     } catch (error) {
       console.error("login Error: ", error.message);
     }
